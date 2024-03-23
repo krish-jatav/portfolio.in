@@ -21,6 +21,33 @@ body {
     width: 100%;
 }
 
+#circle {
+    height: 25px;
+    width: 25px;
+    background-color: rgb(255, 255, 255);
+    position: absolute;
+    mix-blend-mode: difference;
+    border-radius: 50%;
+    z-index: 99999;
+    animation-name: bounce;
+    border: 2px solid rgb(255, 255, 255);
+    animation-timing-function: linear 1s;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-direction: reverse;
+    transition: all 0.3s ease-out;
+    animation: bounce 0.4s infinite alternate;
+}
+
+@keyframes bounce {
+    from {
+        transform: scale(0.7);
+    }
+    to {
+        transform: scale(0.4);
+    }
+}
+
 #nav {
     height: 100px;
     width: 100%;
@@ -50,6 +77,30 @@ body {
     text-decoration: none;
     font-weight: 100;
     color: #000;
+    transition: transform 0.3s;
+}
+
+.navPart-2 h2:hover {
+    content: " ";
+    padding: 10px;
+    border-radius: 50px;
+    color: #ffffff;
+    background: #000;
+}
+
+.navPart-2 h2::after,
+.navPart-2 h2::before {
+    content: '';
+    width: 0%;
+    height: 2px;
+    background: #000000;
+    display: block;
+    transition: 0.5s;
+}
+
+.navPart-2 h2:hover::after,
+.navPart-2 h2:hover::before {
+    width: 100%;
 }
 
 a {
@@ -492,6 +543,8 @@ a {
 .about-me h1 {
     font-size: 70px;
     font-family: sf;
+    position: relative;
+    top: 100px;
 }
 
 .about-section {
@@ -510,6 +563,7 @@ a {
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 20px 20px;
 }
 
 .right-about {
@@ -524,7 +578,7 @@ a {
 .my-img {
     height: 650px;
     width: 450px;
-    background-color: #ffffff;
+    background-color: #e7e7e7;
 }
 
 .my-img img {
@@ -561,6 +615,8 @@ a {
         font-size: 32px;
         font-family: idk;
         font-weight: 400;
+        position: relative;
+        top: 0px;
     }
     .about-section {
         min-height: 100vh;
@@ -761,6 +817,38 @@ footer {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+}
+
+.projects-cards {
+    width: 310px;
+    margin: 20px;
+    border: none;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.167);
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: rgb(0, 0, 0);
+    border: 2px solid rgb(7, 7, 7);
+    object-fit: cover;
+}
+
+.projects-cards video {
+    width: 100%;
+}
+
+.projects-cards img {
+    width: 100%;
+}
+
+.project-card-content {
+    padding: 10px;
+    background-color: #cdcdcd;
+}
+
+.project-card-content h3 {
+    font-size: 25px;
+    color: #252424;
+    font-weight: 300;
+    font-family: sf;
 }
 
 .projects-cards {
